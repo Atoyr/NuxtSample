@@ -30,6 +30,9 @@ export default {
   plugins: [
     '~/plugins/axios.js'
   ],
+  env: {
+    QIITA_TOKEN: process.env.QIITA_TOKEN
+  },
   /*
   ** Nuxt.js modules
   */

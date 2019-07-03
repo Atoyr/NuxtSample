@@ -20,6 +20,9 @@ export default {
       items,
       tag : params.tag
     }
+  },
+  components: {
+    Tag
   }
 }
 </script>

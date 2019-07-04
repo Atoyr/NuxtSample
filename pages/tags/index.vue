@@ -15,7 +15,7 @@
 import Tag from '~/components/tag.vue';
 export default {
   async asyncData({ app ,params}) {
-    const items = await app.$axios.$get('https://qiita.com/api/v2/tags?sort=count')
+    const items = await app.$axios.$get('https://qiita.com/api/v2/tags?sort=count&pre_page=100')
     return {
       items,
       tag : params.tag

@@ -18,6 +18,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title : this.tag
+    }
+  },
   async asyncData({ app ,params}) {
     const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:' + params.tag)
     return {

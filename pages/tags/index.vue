@@ -4,7 +4,7 @@
       <h3>タグ一覧</h3>
       <ul>
         <li v-for="item in items" :key="item.id">
-          <Tag item=item />
+          <Tag :tag_item="item" />
         </li>
       </ul>
     </div>
@@ -15,7 +15,7 @@
 import Tag from '~/components/tag.vue';
 export default {
   async asyncData({ app ,params}) {
-    const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:' + params.tag)
+    const items = await app.$axios.$get('https://qiita.com/api/v2/tags?sort=count')
     return {
       items,
       tag : params.tag

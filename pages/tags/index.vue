@@ -3,7 +3,7 @@
     <div>
       <h3>タグ一覧</h3>
       <ul>
-        <li v-for="item in items" :key="item.id">
+        <li v-for="item in tags" :key="item.id">
           <Tag :tag_item="item" />
         </li>
       </ul>
@@ -13,13 +13,14 @@
 
 <script>
 import Tag from '~/components/tag.vue';
+import {mapGetters} from 'vuex'
+
 export default {
-  async asyncData({ app ,params}) {
-    const items = await app.$axios.$get('https://qiita.com/api/v2/tags?sort=count&pre_page=100')
-    return {
-      items,
-      tag : params.tag
-    }
+  async asyncData({ store}){
+  await store.dispatch('fetchTags')
+  },
+  computed: {
+    ...mapGetters(['tags'])
   },
   components: {
     Tag

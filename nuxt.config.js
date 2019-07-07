@@ -6,6 +6,7 @@ export default {
   */
   head: {
     title: process.env.npm_package_name || '',
+    titleTemplate: '%s | Nuxt.js Qiita viewer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -28,12 +29,20 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios.js'
   ],
+  env: {
+    QIITA_TOKEN: process.env.QIITA_TOKEN
+  },
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios'
   ],
+  axios: {
+
+  },
   /*
   ** Build configuration
   */
